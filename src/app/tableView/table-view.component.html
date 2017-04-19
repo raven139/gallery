@@ -1,0 +1,40 @@
+<div class="uk-grid">
+    <div class="uk-width-1-1">
+        <!--<menu-button></menu-button>-->
+        <!--<div>
+            <span>tableView</span>
+        </div>-->
+    </div>
+    <div class="uk-width-1-1">
+        <table class="uk-table uk-table-hover uk-table-condensed">
+            <thead>
+                <th>ID</th>
+                <th>Image Name</th>
+                <th>Uploaded User</th>
+                <th>CheckSum</th>
+                <th>Events</th>
+            </thead>
+            <tbody *ngFor="let image of images">
+                <tr>
+                    <td>{{image.id}}</td>
+                    <td>{{image.imageName}}</td>
+                    <td>{{image.uploadedUserId}}</td>
+                    <td>{{image.checksum}}</td>
+                    <td>
+                        <button class="uk-button uk-button-primary" (click)="view(image);">View</button>
+                        <button class="uk-button uk-button-danger" (click)="delete(image);">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="uk-width-1-1">
+        <!--third row-->
+
+        <app-dialog [(visible)]="showDialog" class="text-center">
+            <img [attr.src]='image ? image.image : null' alt="" style="height: 450px" />
+            <p><b>Name: </b><span>{{image ? image.imageName : null}}</span></p>
+        </app-dialog>
+    </div>
+
+</div>

@@ -1,0 +1,154 @@
+/*You can add global styles to this file, and also import other style files */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+header{
+  background: black;
+  color: white;
+  height: 50px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+}
+
+.header-button-icon:hover {
+      cursor: pointer;
+      /*box-shadow: 0px 0px 10px 5px #3f3f3f;*/
+      /*background: #3f3f3f;*/
+      /*border-radius: 15px;*/
+      /*text-decoration: overline;*/
+    }
+
+header .vertical-aligne-midle {
+  padding-top: 0.7em !important;
+}
+
+header .header-button-icon-1-10 {
+  max-width: 120px !important;
+}
+
+header .header-button-icon-2-10 {
+  /*max-width: 390px !important;*/
+}
+
+.button:hover {
+      cursor: pointer;
+      box-shadow: 2px 2px 15px 3px #3f3f3f;
+      /*background: #3f3f3f;*/
+      border-radius: 2px;
+    }
+
+@media (max-width: 1300px) {
+    .header-button {
+        display: none;
+    }
+    .header-button-icon {
+      width: 50px !important;
+    }
+}
+
+.block-group {
+  padding-right: 20px !important;
+  padding-left: 20px !important;  
+}
+
+.padding-offset {
+  padding: 10px 10px 10px 10px !important;
+}
+
+/* addition styles */
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.float-center {
+  align-items: center !important;
+}
+
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.margin-left {
+  margin-left: 10px;
+}
+.light-shadow {
+  box-shadow: 2px 2px 5px 0 rgba(0,0,0,0.26);
+  -webkit-transition: all 0.3s ease-in-out 0s !important;
+  transition: all 0.3s ease-in-out 0s !important;
+}
+.light-shadow:hover {
+  box-shadow: 0px 5px 8px 0 rgba(0,0,0,0.26);
+  background: #e2e2e2 !important;
+  -webkit-transition: all 0.3s ease-in-out 0s !important;
+  transition: all 0.3s ease-in-out 0s !important;
+}
+/* Overrides */
+.uk-breadcrumb>li:nth-child(n+2):before {
+    content: "/" !important;
+    display: inline-block !important;
+    margin: 0 8px !important;
+}
+
+.img-block-sizes{
+  height: 300px; 
+  width:300px;
+}
+
+.img-block-del-btn{
+    vertical-align: top;
+    margin-top: -25px;
+    cursor: pointer;
+}
+/** {
+  -webkit-padding-start: 0 !important;
+  -webkit-margin-start: 0 !important;
+}*/
+
+/* Link decoration */
+.link-decoration {
+  position: relative !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.link-decoration:hover {
+  color: #fff !important;
+}
+
+.link-decoration:before {
+  content: "" !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: 3px !important;
+  bottom: -8px !important;
+  left: 0 !important;
+  background-color: #fff !important;
+  visibility: hidden !important;
+  -webkit-transform: scaleX(0) !important;
+  transform: scaleX(0) !important;
+  -webkit-transition: all 0.3s ease-in-out 0s !important;
+  transition: all 0.3s ease-in-out 0s !important;
+}
+
+.link-decoration:hover:before {
+  visibility: visible !important;
+  -webkit-transform: scaleX(1) !important;
+  transform: scaleX(1) !important;
+}

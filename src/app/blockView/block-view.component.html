@@ -1,0 +1,22 @@
+<div class="uk-grid">
+    <div class="uk-width-1-1">
+        <!--<menu-button></menu-button>-->
+        <!--<div>
+            <span>tableView</span>
+        </div>-->
+
+    </div>
+    <div class="uk-width-1-1">
+        <div class="uk-grid">
+            <div *ngFor="let image of images" class="uk-width-1-6 uk-card uk-card-default">
+                <div class="img-block-sizes">                    
+                    <img [attr.src]='image.image' alt="" style="height: 200px; max-width:250px;" />
+                    <div class="uk-icon-button uk-icon-remove img-block-del-btn" (click)="delete(image)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="uk-width-1-1">
+    </div>
+
+</div>
