@@ -5,7 +5,14 @@
 </div>
 
 <div class="uk-grid uk-grid-collapse">
-    <div class="uk-width-1-1 padding-offset">
-        <router-outlet></router-outlet>        
+    <div class=" uk-width-1-2 uk-container-center uk-panel uk-panel-box">
+        <ul class="uk-tab" data-uk-tab>
+            <li><a routerLink="/tableView" routerLinkActive="active">Table View</a></li>
+            <li id="blockViewId"><a routerLink="/blockView" routerLinkActive="active">Block VIew</a></li>
+            <li id="uploadId" class="uk-active"><a routerLink="/imageUpload" routerLinkActive="active">Image Upload</a></li>
+        </ul>
+        <div class="uk-width-1-1 padding-offset">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>

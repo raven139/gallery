@@ -12,6 +12,7 @@ import { ImageService } from './../_services/image.service';
     moduleId: module.id,
     selector: 'image-upload',
     templateUrl: './image-upload.component.html',
+    styleUrls: ['./image-upload.component.css']
 })
 export class ImageUploadComponent implements OnInit {
     @ViewChild('fileInput') el: ElementRef;
@@ -21,7 +22,7 @@ export class ImageUploadComponent implements OnInit {
     constructor(
         private element: ElementRef,
         private changeDetectorRef: ChangeDetectorRef,
-        private imageService: ImageService, 
+        private imageService: ImageService,
         private router: Router) {
     }
 
@@ -138,8 +139,8 @@ export class ImageUploadComponent implements OnInit {
     }
 
     save(): void {
-        for (var i = 0; i < this.file_srcs.length; i++) {
-            var element = this.file_srcs[i];
+        for (let i = 0; i < this.file_srcs.length; i++) {
+            let element = this.file_srcs[i];
 
             let newImage: Image = new Image(
                 element.name,
@@ -154,5 +155,7 @@ export class ImageUploadComponent implements OnInit {
         }
         this.clearAll();
         this.router.navigate(['/blockView']);
+        $("#uploadId").removeClass("uk-active");
+        $("#blockViewId").addClass("uk-active");
     }
 }
