@@ -7,6 +7,7 @@ import { UserImageSrcs } from './../_models/userImageSrcs';
 import { Router } from '@angular/router';
 
 import { ImageService } from './../_services/image.service';
+import { ImageLocalStorageService } from './../_services/image-localstorage.service';
 
 @Component({
     moduleId: module.id,
@@ -23,6 +24,7 @@ export class ImageUploadComponent implements OnInit {
         private element: ElementRef,
         private changeDetectorRef: ChangeDetectorRef,
         private imageService: ImageService,
+        private imagelsService: ImageLocalStorageService,
         private router: Router) {
     }
 
@@ -89,7 +91,6 @@ export class ImageUploadComponent implements OnInit {
         }
     }
 
-
     resize(img, MAX_WIDTH: number, MAX_HEIGHT: number, callback) {
         // This will wait until the img is loaded before calling this function
         return img.onload = () => {
@@ -150,8 +151,9 @@ export class ImageUploadComponent implements OnInit {
                 element.image.src
             );
 
-            this.imageService.create(newImage)
-                .then((insertedImage) => this.images.push(insertedImage));
+            this.imagelsService.create(newImage)
+                .then((insertedImages)=>this.images.push(insertedImages));
+            //.then((insertedImage) => this.images.push(insertedImage));
         }
         this.clearAll();
         this.router.navigate(['/blockView']);

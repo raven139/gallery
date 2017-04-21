@@ -5,7 +5,7 @@
 			"name": "Launch localhost with sourcemaps",
 			"type": "chrome",
 			"request": "launch",
-			"url": "http://localhost:4201",
+			"url": "http://localhost:4200",
 			"sourceMaps": true,
 			"webRoot": "${workspaceRoot}",
 			// Uncomment this to run easily alongside another running instance of Chrome
@@ -18,7 +18,7 @@
 			"name": "Attach with sourcemaps",
 			"type": "chrome",
 			"request": "attach",
-			"port": 4201,
+			"port": 4200,
 			"sourceMaps": true,
 			"webRoot": "${workspaceRoot}"
 		}

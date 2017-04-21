@@ -10,7 +10,7 @@ const routes: Routes = [
     { path: 'tableView', component: TableViewComponent },
     { path: 'blockView', component: BlockViewComponent },
     { path: 'imageUpload', component: ImageUploadComponent },
-    { path: '', component: MenuComponent },
+    { path: '', component: ImageUploadComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' },
 

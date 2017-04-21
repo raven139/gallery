@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 
 import { Image } from './../_models/image';
 import { ImageService } from './../_services/image.service';
+import { ImageLocalStorageService } from './../_services/image-localstorage.service';
 
 @Component({
     moduleId: module.id,
     selector: 'block-view',
-    templateUrl: 'block-view.component.html'
+    templateUrl: 'block-view.component.html',
+    styleUrls: ['./block-view.component.css']
 })
 export class BlockViewComponent implements OnInit {
     images: Image[];
 
-    constructor(private imageService: ImageService) {
+    constructor(private imageService: ImageService,
+        private imagelsService: ImageLocalStorageService) {
     }
 
     ngOnInit() {
@@ -19,7 +22,7 @@ export class BlockViewComponent implements OnInit {
     }
 
     getImages(): void {
-        this.imageService
+        this.imagelsService
             .getImages()
             .then(images => this.images = images);
     }
@@ -30,5 +33,13 @@ export class BlockViewComponent implements OnInit {
             .then(() => {
                 this.images.splice(this.images.indexOf(image), 1);
             });
+    }
+
+    view(image: Image): void {
+        var lightbox = UIkit.lightbox.create([
+            { 'source': image.image, 'type': 'image' }
+        ]);
+
+        lightbox.show();
     }
 }

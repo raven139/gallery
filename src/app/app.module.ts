@@ -16,6 +16,7 @@ import { DialogComponent } from './shared/components/dialog/dialog.component';
 import { AppRouteModule } from './appRoute/app-route.module';
 
 import { ImageService } from './_services/image.service';
+import { ImageLocalStorageService } from './_services/image-localstorage.service';
 
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -40,7 +41,7 @@ import { InMemoryDataService } from './_services/in-memory-data.service';
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [ImageService],
+  providers: [ImageService, ImageLocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

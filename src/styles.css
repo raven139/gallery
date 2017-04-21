@@ -16,6 +16,10 @@ header{
       cursor: pointer;
     }
 
+.img-hover:hover {
+  cursor: pointer;
+}
+
 header .vertical-aligne-midle {
   padding-top: 0.7em !important;
 }

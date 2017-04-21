@@ -27,7 +27,12 @@ export class TableViewComponent implements OnInit {
 
     view(image: Image): void {
         this.image = image;
-        this.showDialog = !this.showDialog;
+        // this.showDialog = !this.showDialog;
+        var lightbox = UIkit.lightbox.create([
+            { 'source': image.image, 'type': 'image' }
+        ]);
+
+        lightbox.show();
     }
 
     delete(image: Image): void {

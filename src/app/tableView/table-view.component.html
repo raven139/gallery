@@ -21,8 +21,8 @@
                     <td>{{image.uploadedUserId}}</td>
                     <td>{{image.checksum}}</td>
                     <td>
-                        <button class="uk-button uk-button-primary" (click)="view(image);">View</button>
-                        <button class="uk-button uk-button-danger" (click)="delete(image);">Delete</button>
+                        <button class="uk-button uk-button-primary" (click)="view(image);"><i class="uk-icon-search"></i></button>
+                        <button class="uk-button uk-button-danger" (click)="delete(image);"><i class="uk-icon-trash-o"></i></button>
                     </td>
                 </tr>
             </tbody>
@@ -30,11 +30,6 @@
     </div>
     <div class="uk-width-1-1">
         <!--third row-->
-
-        <app-dialog [(visible)]="showDialog" class="text-center">
-            <img [attr.src]='image ? image.image : null' alt="" style="height: 450px" />
-            <p><b>Name: </b><span>{{image ? image.imageName : null}}</span></p>
-        </app-dialog>
     </div>
 
 </div>

@@ -1,0 +1,13 @@
+.uk-grid {
+     margin-left: 0 !important; 
+}
+
+@media (min-width: 1220px){
+    .uk-grid {
+        margin-left: 0 !important;
+    }
+}
+
+.uk-panel-box-primary{
+    margin: 5px;
+}
