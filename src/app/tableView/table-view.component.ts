@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuButtonComponent } from './../shared/components/menuButton/menu-button.component';
 import { Image } from './../_models/image';
 import { ImageService } from './../_services/image.service';
+import { ImageLocalStorageService } from './../_services/image-localstorage.service';
 
 @Component({
     moduleId: module.id,
@@ -13,14 +14,15 @@ export class TableViewComponent implements OnInit {
     image: Image;
     images: Image[];
 
-    constructor(private imageService: ImageService) { }
+    constructor(private imageService: ImageService,
+        private imagelsService: ImageLocalStorageService) { }
 
     ngOnInit(): void {
         this.getImages();
     }
 
     getImages(): void {
-        this.imageService
+        this.imagelsService
             .getImages()
             .then(images => this.images = images);
     }
@@ -36,10 +38,10 @@ export class TableViewComponent implements OnInit {
     }
 
     delete(image: Image): void {
-        this.imageService
-            .delete(image.id)
+        this.imagelsService
+            .delete(image)
             .then(() => {
-                this.images.splice(this.images.indexOf(image), 1);
+                this.images.splice(this.images.indexOf(image) - 1, 1);
             });
     }
 }

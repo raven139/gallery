@@ -14,37 +14,35 @@ export class ImageLocalStorageService {
     constructor(private http: Http) { }
 
     getImages(): Promise<Image[]> {
-        var imgs = <Image[]>JSON.parse(localStorage.getItem("images")) as Image[];
+        let imgs = <Image[]>JSON.parse(localStorage.getItem("images")) as Image[];
+        if (!imgs)
+            imgs = [];
         return Promise.resolve(imgs);
     }
 
     create(image: Image): Promise<Image> {
-        let images: Image[] = [];
-        this.getImages().then((res) => {
-            console.log(res);
-            images = res
-            images.push(image);
-            localStorage.setItem('images', JSON.stringify(images));
-        });
+        let imgs = <Image[]>JSON.parse(localStorage.getItem("images")) as Image[];
+        if (!imgs)
+            imgs = [];
+        imgs.push(image);
+        localStorage.setItem('images', JSON.stringify(imgs));
 
         return Promise.resolve(image);
     }
 
-    // delete(id: number): Promise<any> {
-    //     const url = `${this.galleryUrl}/${id}`;
-    //     return this.http.delete(url, { headers: this.headers })
-    //         .toPromise()
-    //         .then(() => null)
-    //         .catch(this.handleError);
-    // }
-
-    // create(image: Image): Promise<Image> {
-    //     return this.http
-    //         .post(this.galleryUrl, JSON.stringify(image), { headers: this.headers })
-    //         .toPromise()
-    //         .then(res => res.json().data as Image)
-    //         .catch(this.handleError);
-    // }
+    delete(image: Image): Promise<any> {
+        let imgs = <Image[]>JSON.parse(localStorage.getItem("images")) as Image[];
+        let index = -1;
+        for (let i = 0; i < imgs.length; i++) {
+            let element = imgs[i];
+            if (element.guid == image.guid) {
+                index = i;
+            }
+        }
+        imgs.splice(index, 1);
+        localStorage.setItem('images', JSON.stringify(imgs));
+        return Promise.resolve();
+    }
 
     private handleError(error: any): Promise<any> {
         debugger;

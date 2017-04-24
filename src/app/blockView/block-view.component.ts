@@ -28,8 +28,8 @@ export class BlockViewComponent implements OnInit {
     }
 
     delete(image: Image): void {
-        this.imageService
-            .delete(image.id)
+        this.imagelsService
+            .delete(image)
             .then(() => {
                 this.images.splice(this.images.indexOf(image), 1);
             });
@@ -37,7 +37,10 @@ export class BlockViewComponent implements OnInit {
 
     view(image: Image): void {
         var lightbox = UIkit.lightbox.create([
-            { 'source': image.image, 'type': 'image' }
+            {
+                'source': image.image,
+                'type': 'image'
+            }
         ]);
 
         lightbox.show();

@@ -142,8 +142,9 @@ export class ImageUploadComponent implements OnInit {
     save(): void {
         for (let i = 0; i < this.file_srcs.length; i++) {
             let element = this.file_srcs[i];
-
+            let guid = this.guid();
             let newImage: Image = new Image(
+                guid,
                 element.name,
                 element.size,
                 '1',
@@ -152,12 +153,22 @@ export class ImageUploadComponent implements OnInit {
             );
 
             this.imagelsService.create(newImage)
-                .then((insertedImages)=>this.images.push(insertedImages));
+                .then((insertedImages) => this.images.push(insertedImages));
             //.then((insertedImage) => this.images.push(insertedImage));
         }
         this.clearAll();
         this.router.navigate(['/blockView']);
         $("#uploadId").removeClass("uk-active");
         $("#blockViewId").addClass("uk-active");
+    }
+
+    guid() {
+        function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+                .toString(16)
+                .substring(1);
+        }
+        return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+            s4() + '-' + s4() + s4() + s4();
     }
 }
