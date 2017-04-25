@@ -10,14 +10,12 @@
             <thead>
                 <th>Image Name</th>
                 <th>Uploaded User</th>
-                <th>CheckSum</th>
                 <th>Events</th>
             </thead>
             <tbody *ngFor="let image of images">
                 <tr>
                     <td>{{image.imageName}}</td>
                     <td>{{image.uploadedUserId}}</td>
-                    <td>{{image.checksum}}</td>
                     <td>
                         <button class="uk-button uk-button-primary" (click)="view(image);"><i class="uk-icon-search"></i></button>
                         <button class="uk-button uk-button-danger" (click)="delete(image);"><i class="uk-icon-trash-o"></i></button>

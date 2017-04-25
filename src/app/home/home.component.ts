@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'menu',
-    templateUrl: 'menu.component.html'
+    selector: 'home',
+    templateUrl: 'home.component.html'
 })
-export class MenuComponent implements OnInit {
+export class HomeComponent implements OnInit {
     title: string = "";
 
     constructor() { }

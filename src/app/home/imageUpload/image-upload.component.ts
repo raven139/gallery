@@ -1,13 +1,14 @@
 import { Component, OnInit, Injectable, ChangeDetectorRef } from '@angular/core';
 import { ElementRef, ViewChild, Renderer } from '@angular/core'
 
-import { User } from './../_models/user';
-import { Image } from './../_models/image';
-import { UserImageSrcs } from './../_models/userImageSrcs';
+import { User } from './../../_models/user';
+import { Image } from './../../_models/image';
+import { UserImageSrcs } from './../../_models/userImageSrcs';
 import { Router } from '@angular/router';
 
-import { ImageService } from './../_services/image.service';
-import { ImageLocalStorageService } from './../_services/image-localstorage.service';
+import { ImageService } from './../../_services/image.service';
+import { ImageLocalStorageService } from './../../_services/image-localstorage.service';
+import { UserService } from './../../_services/user.service';
 
 @Component({
     moduleId: module.id,
@@ -25,6 +26,7 @@ export class ImageUploadComponent implements OnInit {
         private changeDetectorRef: ChangeDetectorRef,
         private imageService: ImageService,
         private imagelsService: ImageLocalStorageService,
+        private userService: UserService,
         private router: Router) {
     }
 
@@ -148,13 +150,12 @@ export class ImageUploadComponent implements OnInit {
                 element.name,
                 element.size,
                 '1',
-                1,
+                JSON.parse(this.userService.getUser()).username,
                 element.image.src
             );
 
             this.imagelsService.create(newImage)
                 .then((insertedImages) => this.images.push(insertedImages));
-            //.then((insertedImage) => this.images.push(insertedImage));
         }
         this.clearAll();
         this.router.navigate(['/blockView']);

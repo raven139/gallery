@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuButtonComponent } from './../shared/components/menuButton/menu-button.component';
-import { Image } from './../_models/image';
-import { ImageService } from './../_services/image.service';
-import { ImageLocalStorageService } from './../_services/image-localstorage.service';
+import { MenuButtonComponent } from './../../shared/components/menuButton/menu-button.component';
+import { Image } from './../../_models/image';
+import { ImageService } from './../../_services/image.service';
+import { ImageLocalStorageService } from './../../_services/image-localstorage.service';
 
 @Component({
     moduleId: module.id,
